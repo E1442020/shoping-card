@@ -1,7 +1,17 @@
 import React,{useState} from 'react'
 
 export default function CartProduct(props) {
-    const [quantity,setQuantity]=useState(props.quantity)
+    const [quantity,setQuantity]=useState(props.quantity);
+    
+    const onChangeHandler=(e)=>{
+      const tempQuantity = e.target.value
+      setQuantity(tempQuantity);
+      if(props.getTotal){props.getTotal();}
+      if(props.updateQuantity){props.updateQuantity(tempQuantity)}
+      setQuantity(tempQuantity)
+      }
+
+    
   return (
     <>
     <div className="cart-page-content" key={props.id }>
@@ -10,7 +20,7 @@ export default function CartProduct(props) {
         </div>
         <div className="cart-page-content-price">
           <h3>Name:{props.name}</h3>
-        <input type='number' value={quantity} onChange={(e)=>{setQuantity(e.target.value);props.getTotal();props.updateQuantity(quantity)} }/>
+        <input type='number' value={quantity} onChange={onChangeHandler}/>
         <h3>Price:{(quantity==''||quantity==0)?0:(props.price*quantity)}</h3>
         <button onClick={()=>props.remove(props.id)}>Remove</button>
         </div>
