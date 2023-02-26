@@ -1,0 +1,22 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "Nunito Sans", sans-serif;
+  list-style-type: none;
+}
+
+.all-product-container {
+  width: 90%;
+  margin: 30px auto;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 50px;
+}
+@media (max-width: 940px) {
+  .all-product-container {
+    width: 100%;
+    gap: 20px;
+  }
+}/*# sourceMappingURL=AllProduct.css.map */
