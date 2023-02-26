@@ -11,7 +11,7 @@ export default function CartProduct(props) {
         <div className="cart-page-content-price">
           <h3>Name:{props.name}</h3>
         <input type='number' value={quantity} onChange={(e)=>{setQuantity(e.target.value);props.getTotal(props.price,props.quantity)} }/>
-        <h3>Price:{(quantity==''||quantity==0)?props.price:(props.price*quantity)}</h3>
+        <h3>Price:{(quantity==''||quantity==0)?0:(props.price*quantity)}</h3>
         <button onClick={()=>props.remove(props.id)}>Remove</button>
         </div>
         </div>

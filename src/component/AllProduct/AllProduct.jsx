@@ -4,7 +4,7 @@ import { ProductDetails } from '../ProductDetails'
 
 import './AllProduct.css'
 
-export default function AllProduct() {
+export default function AllProduct(props) {
   const [products,setProducts] =useState([])
   const[buttonDisable,setButtonDisable]=useState(false)
   const [cartProducts,setCartProducts] =useState([]);
@@ -45,6 +45,8 @@ export default function AllProduct() {
         tempCartProduct.push(product)
         localStorage.setItem('cartProducts', JSON.stringify(tempCartProduct))
         setCartProducts(tempCartProduct)
+        if(props.showDot){
+        props.showDot()}
         
         
       }

@@ -19,6 +19,7 @@
             object-fit: cover;
         }
     }h2{
+        color: $mainColor;
         @include breakpoints(mobile){
             word-wrap: break-word;  }
     }
@@ -26,7 +27,7 @@
         color: green;
     }
     button{
-        background-color:#56527B ;
+        background-color:#413c6e ;
         color: white;
         border: none;
         padding: 10px 0px;

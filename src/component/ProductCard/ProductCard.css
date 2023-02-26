@@ -32,6 +32,9 @@
   -o-object-fit: cover;
      object-fit: cover;
 }
+.product-card-container h2 {
+  color: #2E285A;
+}
 @media (max-width: 940px) {
   .product-card-container h2 {
     word-wrap: break-word;
@@ -41,7 +44,7 @@
   color: green;
 }
 .product-card-container button {
-  background-color: #56527B;
+  background-color: #413c6e;
   color: white;
   border: none;
   padding: 10px 0px;

@@ -12,17 +12,17 @@ import img11 from "./image/pexels-vlada-karpovich-6634651.jpg";
 import img12 from "./image/pexels-web-donut-19090.jpg";
 
 export const ProductDetails = [
-  { id: 1, quantity: 1, img: img1, name: "Jasmine", price: "100" },
-  { id: 2, quantity: 1, img: img2, name: "Jasmine", price: "150" },
-  { id: 3, quantity: 1, img: img3, name: "Jasmine", price: "188" },
-  { id: 4, quantity: 1, img: img4, name: "Jasmine", price: "75" },
-  { id: 5, quantity: 1, img: img5, name: "Jasmine", price: "140" },
-  { id: 6, quantity: 1, img: img6, name: "Jasmine", price: "190" },
-  { id: 7, quantity: 1, img: img7, name: "Jasmine", price: "155" },
-  { id: 8, quantity: 1, img: img8, name: "Jasmine", price: "100" },
-  { id: 9, quantity: 1, img: img9, name: "Jasmine", price: "180" },
-  { id: 10, quantity: 1, img: img10, name: "Jasmine", price: "70" },
-  { id: 11, quantity: 1, img: img11, name: "Jasmine", price: "550" },
-  { id: 12, quantity: 1, img: img12, name: "Jasmine", price: "50" },
+  { id: 1, quantity: 1, img: img1, name: "Skin Care", price: "100" },
+  { id: 2, quantity: 1, img: img2, name: "Skin Care", price: "150" },
+  { id: 3, quantity: 1, img: img3, name: "Shoes", price: "188" },
+  { id: 4, quantity: 1, img: img4, name: "Watch", price: "75" },
+  { id: 5, quantity: 1, img: img5, name: "Shoes", price: "140" },
+  { id: 6, quantity: 1, img: img6, name: "Shoes", price: "190" },
+  { id: 7, quantity: 1, img: img7, name: "Camera", price: "155" },
+  { id: 8, quantity: 1, img: img8, name: "Dish", price: "100" },
+  { id: 9, quantity: 1, img: img9, name: "Skin Care", price: "180" },
+  { id: 10, quantity: 1, img: img10, name: "Food", price: "70" },
+  { id: 11, quantity: 1, img: img11, name: "Skin Care", price: "550" },
+  { id: 12, quantity: 1, img: img12, name: "Shoes", price: "50" },
 ];
 localStorage.setItem("products", JSON.stringify(ProductDetails));
