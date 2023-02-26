@@ -62,7 +62,7 @@ export default function AllProduct(props) {
    <div className="all-product-container">
      {products.map((product)=>{
         return(
-            <ProductCard img={product.img} name={product.name} price={product.price} key={product.id} id={product.id} addToCart={addToCart} disable={buttonDisable} product={product}   />
+            <ProductCard img={product.img} name={product.name} price={product.price} key={product.id} id={product.id} addToCart={addToCart} disable={buttonDisable} productId={product.id}   />
         )
      })}
    </div>

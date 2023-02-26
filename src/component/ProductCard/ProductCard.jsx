@@ -13,27 +13,25 @@ export default function ProductCard(props) {
     return JSON.parse(info);
   };
 
-  const checkIsAdded = (productItem, hh) => {
-    console.log(productItem);
-    // const temp =[...cartProducts]
-    console.log(hh);
-    if (hh.includes(productItem)) {
-      console.log("yes");
-      setButtonDisable(!buttonDisable);
-    } else {
-      setButtonDisable(buttonDisable);
-      console.log("no");
-    }
+  const checkIsAdded = (productId) => {
+    console.log(productId);
+    console.log(cartProducts)
+    cartProducts.map((cartProduct) => {
+      if (cartProduct.id === productId) {
+        setButtonDisable(!buttonDisable);
+        console.log("yes");
+      } else {
+        setButtonDisable(buttonDisable);
+        console.log("no");
+      }
+    });
   };
 
   useEffect(() => {
     // setProducts(productFromLocalStorage())
-    let hh = [...cartProducts];
-    hh = cartProductFromLocalStorage();
-    setCartProducts(hh);
-    // setCartProducts(cartProductFromLocalStorage())
+    setCartProducts(cartProductFromLocalStorage());
 
-    checkIsAdded(props.product, hh);
+    checkIsAdded(props.productId);
   }, []);
 
   return (
