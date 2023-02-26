@@ -3,33 +3,24 @@ import "./ProductCard.css";
 
 export default function ProductCard(props) {
   const [buttonDisable, setButtonDisable] = useState(props.disable);
-  const [cartProducts, setCartProducts] = useState([]);
-
-  const cartProductFromLocalStorage = () => {
-    let info = localStorage.getItem("cartProducts");
-    if (info === null) {
-      return [];
-    }
-    return JSON.parse(info);
-  };
 
   const checkIsAdded = (productId) => {
-    console.log(productId);
-    console.log(cartProducts)
-    cartProducts.map((cartProduct) => {
+    // console.log(productId);
+    // console.log(cartProducts)
+    props.arr.map((cartProduct) => {
       if (cartProduct.id === productId) {
         setButtonDisable(!buttonDisable);
-        console.log("yes");
+        // console.log("yes");
       } else {
         setButtonDisable(buttonDisable);
-        console.log("no");
+        // console.log("no");
       }
     });
   };
 
   useEffect(() => {
     // setProducts(productFromLocalStorage())
-    setCartProducts(cartProductFromLocalStorage());
+    // setCartProducts(cartProductFromLocalStorage());
 
     checkIsAdded(props.productId);
   }, []);

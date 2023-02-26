@@ -26,15 +26,17 @@ export default function CartPage() {
     })}
 
     const getTotalPrice=()=>{
-      let tempTotalPrice =totalPrice;
-      let tempCartProduct=[...cartProducts]
-        tempCartProduct.map((product)=>{
-          let priceNum=parseInt(product.price)
-          let quantityNum = parseInt(product.quantity)
-          tempTotalPrice=priceNum*quantityNum
-        })
-      setTotalPrice(tempTotalPrice)
-    setCartProducts(tempCartProduct)}
+     let sum=0
+     
+     cartProducts.map((product)=>{
+      let totalNumber=parseInt(product.price*product.quantity)
+       sum+=totalNumber
+     })
+     setTotalPrice(sum)
+     console.log(sum)
+
+      
+      }
        
 const updateLocal=(quantity)=>{
   let tempCartProduct=[...cartProducts]
@@ -64,7 +66,7 @@ const updateLocal=(quantity)=>{
       })}
       
   <div className="cart-page-footer">
-    <p>Total Price:{cartProducts.length==0?0:totalPrice}</p>
+    <p>Total Price:{cartProducts.length==0?'0':totalPrice}</p>
     <button><Link to='/'>continue to shopping</Link></button>
   </div>
     </div>
