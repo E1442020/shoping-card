@@ -30,7 +30,8 @@ export default function CartPage() {
       let tempCartProduct=[...cartProducts]
         tempCartProduct.map((product)=>{
           let priceNum=parseInt(product.price)
-          tempTotalPrice+=priceNum
+          let quantityNum = parseInt(product.quantity)
+          tempTotalPrice+=priceNum*quantityNum
         })
       setTotalPrice(tempTotalPrice)
     setCartProducts(tempCartProduct)}
