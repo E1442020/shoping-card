@@ -4,7 +4,6 @@ import './CartPage.css'
 import CartProduct from './CartProduct';
 export default function CartPage() {
   const [cartProducts,setCartProducts] =useState([]);
-  
   const [totalPrice,setTotalPrice] = useState('')
   //get Product from localStorage
 
@@ -26,29 +25,30 @@ export default function CartPage() {
       }
     })}
 
-    const getTotalPrice=(price,quantity,hh)=>{
-      let tempTotalPrice =totalPrice
-      if(cartProducts.length==0){tempTotalPrice=0
-      }else{
-        tempTotalPrice=price*quantity
-
-      // let tempTotalPrice = 0;
-      // cartProducts.map((product)=>{
-      //   let num =parseInt(product.price)
-      //   tempTotalPrice += num
-      }setTotalPrice(tempTotalPrice)
-    }
-
+    const getTotalPrice=()=>{
+      let tempTotalPrice =totalPrice;
+      let tempCartProduct=[...cartProducts]
+        tempCartProduct.map((product)=>{
+          let priceNum=parseInt(product.price)
+          tempTotalPrice+=priceNum
+        })
+      setTotalPrice(tempTotalPrice)
+    setCartProducts(tempCartProduct)}
+       
+const updateLocal=(quantity)=>{
+  let tempCartProduct=[...cartProducts]
+  tempCartProduct.map((product)=>{
+    product.quantity = quantity
+    localStorage.setItem("cartProducts",JSON.stringify(tempCartProduct))
+    setCartProducts(tempCartProduct)
+  })
+}
   
   useEffect(()=>{
     
+   setCartProducts(cartProductFromLocalStorage())
    
-    setCartProducts(cartProductFromLocalStorage());
-    let hh=[...cartProducts]
-    hh=cartProductFromLocalStorage()
-    setCartProducts(hh)
-    console.log(hh)
-    getTotalPrice(hh);
+    // getTotalPrice();
   },[])
   // localStorage.clear()
   return (
@@ -56,13 +56,14 @@ export default function CartPage() {
     <div className="cart-page-container">
       {cartProducts.map((cartProduct)=>{
         return(
-          <CartProduct name={cartProduct.name} price={cartProduct.price} quantity={cartProduct.quantity} img={cartProduct.img} key={cartProduct.id} id={cartProduct.id} setQuantity getTotal={getTotalPrice} remove={removeProduct}/>
+          <CartProduct name={cartProduct.name} price={cartProduct.price} quantity={cartProduct.quantity} img={cartProduct.img} key={cartProduct.id} id={cartProduct.id} setQuantity   getTotal={getTotalPrice} remove={removeProduct} updateQuantity={updateLocal}
+          />
 
         )
       })}
       
   <div className="cart-page-footer">
-    <p>Total Price:{totalPrice}</p>
+    <p>Total Price:{cartProducts.length==0?0:totalPrice}</p>
     <button><Link to='/'>continue to shopping</Link></button>
   </div>
     </div>
