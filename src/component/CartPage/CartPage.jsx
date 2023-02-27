@@ -102,9 +102,9 @@ export default function CartPage() {
     const tempArr = cartProductFromLocalStorage();
     setCartProducts(tempArr);
     getTotalPrice(tempArr);
-    if (tempArr) {
+    
       setLoading(false);
-    }
+    
   }, []);
   // localStorage.clear()
 
