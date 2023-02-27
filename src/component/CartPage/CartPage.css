@@ -11,7 +11,7 @@
   flex-direction: column;
   width: 70%;
   margin: 50px auto;
-  gap: 40px;
+  gap: 50px;
   justify-content: center;
 }
 @media (max-width: 940px) {
@@ -19,11 +19,14 @@
     width: 100%;
   }
 }
+.cart-page-container .loading {
+  text-align: center;
+}
 .cart-page-container .no-product {
   display: flex;
   justify-content: center;
   width: 40%;
-  margin: 0 auto;
+  margin: 20px auto;
   color: rgb(186, 76, 76);
 }
 @media (max-width: 940px) {
@@ -127,7 +130,7 @@
   justify-content: center;
   gap: 20px;
   width: 60%;
-  margin: 0 auto;
+  margin: 30px auto;
 }
 @media (max-width: 940px) {
   .cart-page-container .cart-page-footer {
