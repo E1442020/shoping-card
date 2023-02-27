@@ -3,11 +3,26 @@ import React, { useState } from "react";
 export default function CartProduct(props) {
   const [quantity, setQuantity] = useState(props.quantity);
 
-  const onChangeHandler = (e) => {
-    const tempQuantity = e.target.value;
+  const increaseQuantity = () => {
+    const tempQuantity = quantity+1;
 
     if (props.updateQuantity) {
-      props.updateQuantity(tempQuantity);
+      props.updateQuantity(tempQuantity,props.id);
+    }
+    if (props.getTotal) {
+      props.getTotal(props.arr);
+    }
+    setQuantity(tempQuantity);
+  };
+  const decreaseQuantity = () => {
+    let tempQuantity = quantity;
+    console.log(tempQuantity);
+    if(tempQuantity==0){tempQuantity=0;
+    }else{;
+      tempQuantity=quantity-1}
+
+    if (props.updateQuantity) {
+      props.updateQuantity(tempQuantity,props.id);
     }
     if (props.getTotal) {
       props.getTotal(props.arr);
@@ -22,12 +37,12 @@ export default function CartProduct(props) {
           <img src={props.img} alt={props.name} />
         </div>
         <div className="cart-page-content-price">
-          <h3>Name:{props.name}</h3>
-          <input type="number" value={quantity} onChange={onChangeHandler} />
-          <h3>
-            Price:{quantity == "" || quantity == 0 ? 0 : props.price * quantity}
+          <h3>{props.name}</h3>
+         <div className="quantity-container"> <button className="increase" onClick={increaseQuantity}>+</button><span className="quantity">{quantity}</span><button className="decrease" onClick={decreaseQuantity} >-</button></div>
+          <h3><span>
+            Price:</span><span>{quantity == "" || quantity == 0 ? 0 :<>{props.price}<sub className="price">(x{quantity})</sub>={props.price*quantity}</>}</span>
           </h3>
-          <button onClick={() => props.remove(props.id)}>Remove</button>
+          <button className="removeBtn" onClick={() => props.remove(props.id)}>Remove</button>
         </div>
       </div>
     </>

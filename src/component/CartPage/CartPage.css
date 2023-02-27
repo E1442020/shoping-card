@@ -37,8 +37,8 @@
 }
 @media (max-width: 940px) {
   .cart-page-container .cart-page-content .cart-page-content-img {
-    width: 60%;
-    height: 170px;
+    width: 50%;
+    height: 200px;
   }
 }
 .cart-page-container .cart-page-content .cart-page-content-img img {
@@ -54,11 +54,48 @@
 }
 @media (max-width: 940px) {
   .cart-page-container .cart-page-content .cart-page-content-price {
-    width: 40%;
+    width: 50%;
   }
 }
-.cart-page-container .cart-page-content .cart-page-content-price button {
-  background-color: rgb(169, 70, 70);
+.cart-page-container .cart-page-content .cart-page-content-price .quantity-container {
+  height: 40px;
+  display: flex;
+  align-items: center;
+}
+.cart-page-container .cart-page-content .cart-page-content-price .quantity-container .increase {
+  background-color: rgb(22, 86, 22);
+  padding: 10px 15px;
+  border: none;
+  color: white;
+  height: 100%;
+}
+.cart-page-container .cart-page-content .cart-page-content-price .quantity-container .quantity {
+  height: 100%;
+  padding: 12px 15px;
+  background-color: rgb(228, 233, 233);
+}
+.cart-page-container .cart-page-content .cart-page-content-price .quantity-container .decrease {
+  height: 100%;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  background-color: rgb(196, 68, 68);
+}
+.cart-page-container .cart-page-content .cart-page-content-price h3 {
+  color: #2E285A;
+}
+@media (max-width: 940px) {
+  .cart-page-container .cart-page-content .cart-page-content-price h3 {
+    word-wrap: break-word;
+    display: flex;
+    flex-direction: column;
+  }
+}
+.cart-page-container .cart-page-content .cart-page-content-price h3 .price {
+  color: rgb(22, 86, 22);
+}
+.cart-page-container .cart-page-content .cart-page-content-price .removeBtn {
+  background-color: rgb(122, 26, 26);
   color: white;
   padding: 10px;
   cursor: pointer;
@@ -77,10 +114,14 @@
     width: 80%;
   }
 }
+.cart-page-container .cart-page-footer h2 {
+  color: rgb(22, 86, 22);
+}
 .cart-page-container .cart-page-footer button {
   padding: 10px;
   border: none;
-  background-color: #56527B;
+  background-color: #56527b;
+  font-size: 20px;
   cursor: pointer;
 }
 .cart-page-container .cart-page-footer button a {

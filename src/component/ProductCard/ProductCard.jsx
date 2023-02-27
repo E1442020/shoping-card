@@ -5,9 +5,9 @@ export default function ProductCard(props) {
   const [buttonDisable, setButtonDisable] = useState(props.disable);
 
   const checkIsAdded = (productId) => {
-    // console.log(productId);
-    // console.log(cartProducts)
-    props.arr.map((cartProduct) => {
+    console.log(productId);
+    console.log(props.cartProductsArr)
+    props.cartProductsArr.map((cartProduct) => {
       if (cartProduct.id === productId) {
         setButtonDisable(!buttonDisable);
         // console.log("yes");

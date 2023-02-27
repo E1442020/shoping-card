@@ -17,9 +17,11 @@ export default function CartPage() {
 
   const removeProduct = (id) => {
     let tempCartProduct = [...cartProducts];
+    
     tempCartProduct.map((product, index) => {
       if (product.id === id) {
         tempCartProduct.splice(index, 1);
+        getTotalPrice(tempCartProduct)
         setCartProducts(tempCartProduct);
         localStorage.setItem("cartProducts", JSON.stringify(tempCartProduct));
       }
@@ -27,38 +29,44 @@ export default function CartPage() {
   };
 
   const getTotalPrice = (tempArr) => {
-    let total;
+    
     let sum = 0;
 
     if (tempArr.length == 0) {
-      total = 0;
-      console.log(tempArr.length);
-    } else {
+      sum=sum;}
+      
+    // } else {
       tempArr.map((product) => {
-        total = parseInt(product.price * product.quantity);
-
-        sum += total;
+        sum += parseInt(product.price * product.quantity);
+        
+        
       });
 
-      console.log(sum);
-    }
+      // console.log(sum);
+    
     setTotalPrice(sum);
   };
 
-  const updateLocal = (quantity) => {
+  const updateLocal = (quantity,id) => {
     let tempCartProduct = [...cartProducts];
+    console.log('ll')
     tempCartProduct.map((product) => {
-      product.quantity = quantity;
-      localStorage.setItem("cartProducts", JSON.stringify(tempCartProduct));
-      setCartProducts(tempCartProduct);
-    });
+     
+     
+      if (product.id === id) {
+       
+        product.quantity = quantity;
+        setCartProducts(tempCartProduct);
+        localStorage.setItem("cartProducts", JSON.stringify(tempCartProduct));
+      }
+      });
+   
   };
 
   useEffect(() => {
     const tempArr = cartProductFromLocalStorage();
-
     setCartProducts(tempArr);
-    console.log(tempArr);
+    // console.log(tempArr);
     getTotalPrice(tempArr);
   }, []);
   // localStorage.clear()
@@ -83,7 +91,7 @@ export default function CartPage() {
         })}
 
         <div className="cart-page-footer">
-          <p>Total Price:{totalPrice}</p>
+          <h2>Total Price:{totalPrice}</h2>
           <button>
             <Link to="/">continue to shopping</Link>
           </button>
