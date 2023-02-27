@@ -6,11 +6,8 @@ import "./AllProduct.css";
 
 export default function AllProduct(props) {
   const [products, setProducts] = useState([]);
-  // const [buttonDisable, setButtonDisable] = useState(false);
   const [cartProducts, setCartProducts] = useState([]);
-  // let cartProducts=JSON.parse(localStorage.getItem("cartProducts"));
-  //get Product from localStorage
-
+  
   const productFromLocalStorage = () => {
     let info = localStorage.getItem("products");
     if (info === null) {
