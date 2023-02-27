@@ -19,6 +19,20 @@
     width: 100%;
   }
 }
+.cart-page-container .no-product {
+  display: flex;
+  justify-content: center;
+  width: 40%;
+  margin: 0 auto;
+  color: rgb(186, 76, 76);
+}
+@media (max-width: 940px) {
+  .cart-page-container .no-product {
+    width: 80%;
+    display: flex;
+    justify-content: center;
+  }
+}
 .cart-page-container .cart-page-content {
   display: flex;
   gap: 80px;
@@ -68,14 +82,17 @@
   border: none;
   color: white;
   height: 100%;
+  font-size: 18px;
 }
 .cart-page-container .cart-page-content .cart-page-content-price .quantity-container .quantity {
   height: 100%;
   padding: 12px 15px;
+  font-size: 18px;
   background-color: rgb(228, 233, 233);
 }
 .cart-page-container .cart-page-content .cart-page-content-price .quantity-container .decrease {
   height: 100%;
+  font-size: 18px;
   color: white;
   border: none;
   padding: 10px 15px;
@@ -93,6 +110,7 @@
 }
 .cart-page-container .cart-page-content .cart-page-content-price h3 .price {
   color: rgb(22, 86, 22);
+  font-size: 12px;
 }
 .cart-page-container .cart-page-content .cart-page-content-price .removeBtn {
   background-color: rgb(122, 26, 26);
@@ -116,12 +134,13 @@
 }
 .cart-page-container .cart-page-footer h2 {
   color: rgb(22, 86, 22);
+  font-size: 20px;
 }
 .cart-page-container .cart-page-footer button {
   padding: 10px;
   border: none;
   background-color: #56527b;
-  font-size: 20px;
+  font-size: 18px;
   cursor: pointer;
 }
 .cart-page-container .cart-page-footer button a {

@@ -39,8 +39,7 @@ export default function CartProduct(props) {
         <div className="cart-page-content-price">
           <h3>{props.name}</h3>
          <div className="quantity-container"> <button className="increase" onClick={increaseQuantity}>+</button><span className="quantity">{quantity}</span><button className="decrease" onClick={decreaseQuantity} >-</button></div>
-          <h3><span>
-            Price:</span><span>{quantity == "" || quantity == 0 ? 0 :<>{props.price}<sub className="price">(x{quantity})</sub>={props.price*quantity}</>}</span>
+          <h3><span>{quantity == "" || quantity == 0 ? `$0` :<>${props.price}<sub className="price">(x{quantity})</sub>=${props.price*quantity}</>}</span>
           </h3>
           <button className="removeBtn" onClick={() => props.remove(props.id)}>Remove</button>
         </div>

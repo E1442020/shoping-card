@@ -2,26 +2,18 @@ import React, { useState, useEffect } from "react";
 import "./ProductCard.css";
 
 export default function ProductCard(props) {
-  const [buttonDisable, setButtonDisable] = useState(props.disable);
+  const [buttonDisable, setButtonDisable] = useState(false);
 
   const checkIsAdded = (productId) => {
-    console.log(productId);
-    console.log(props.cartProductsArr)
     props.cartProductsArr.map((cartProduct) => {
-      if (cartProduct.id === productId) {
-        setButtonDisable(!buttonDisable);
-        // console.log("yes");
-      } else {
-        setButtonDisable(buttonDisable);
-        // console.log("no");
+      if (cartProduct.id == productId) {
+        setButtonDisable(true);
+        console.log("yes");
       }
     });
   };
 
   useEffect(() => {
-    // setProducts(productFromLocalStorage())
-    // setCartProducts(cartProductFromLocalStorage());
-
     checkIsAdded(props.productId);
   }, []);
 
@@ -37,7 +29,7 @@ export default function ProductCard(props) {
           disabled={buttonDisable}
           onClick={() => {
             props.addToCart(props.id);
-            setButtonDisable(!buttonDisable);
+            setButtonDisable(true);
           }}
         >
           {buttonDisable ? "Already Added" : "Add To Cart"}

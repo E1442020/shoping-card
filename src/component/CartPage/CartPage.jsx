@@ -49,7 +49,6 @@ export default function CartPage() {
 
   const updateLocal = (quantity,id) => {
     let tempCartProduct = [...cartProducts];
-    console.log('ll')
     tempCartProduct.map((product) => {
      
      
@@ -73,6 +72,9 @@ export default function CartPage() {
   return (
     <>
       <div className="cart-page-container">
+        
+          {cartProducts.length==0?<h3 className="no-product">No Product Available...Add Some!!</h3>:<>
+       
         {cartProducts.map((cartProduct) => {
           return (
             <CartProduct
@@ -88,10 +90,10 @@ export default function CartPage() {
               updateQuantity={updateLocal}
             />
           );
-        })}
+        })}</>}
 
         <div className="cart-page-footer">
-          <h2>Total Price:{totalPrice}</h2>
+          <h2>Total Price:${totalPrice}</h2>
           <button>
             <Link to="/">continue to shopping</Link>
           </button>

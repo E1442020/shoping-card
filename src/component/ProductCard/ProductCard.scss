@@ -1,36 +1,40 @@
-@import '../../index.scss';
-.product-card-container{
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-    @include breakpoints(mobile){
-        width: 40%;                }
-     
-    .product-card-img{
-        width:200px;
-        height: 300px;
-        @include breakpoints(mobile){
-            width: 100%;  
-            height: 200px;              }
-         
-        img{
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-    }h2{
-        color: $mainColor;
-        @include breakpoints(mobile){
-            word-wrap: break-word;  }
+@import "../../index.scss";
+.product-card-container {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  @include breakpoints(mobile) {
+    width: 40%;
+  }
+
+  .product-card-img {
+    width: 200px;
+    height: 300px;
+    @include breakpoints(mobile) {
+      width: 100%;
+      height: 200px;
     }
-    p{
-        color: green;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
     }
-    button{
-        background-color:#413c6e ;
-        color: white;
-        border: none;
-        padding: 10px 0px;
-        cursor: pointer;
+  }
+  h2 {
+    color: $mainColor;
+    @include breakpoints(mobile) {
+      word-wrap: break-word;
     }
+  }
+  p {
+    color: green;
+  }
+  button {
+    background-color: #413c6e;
+    color: white;
+    border: none;
+    padding: 10px 0px;
+    cursor: pointer;
+  }
 }

@@ -6,7 +6,7 @@ import "./AllProduct.css";
 
 export default function AllProduct(props) {
   const [products, setProducts] = useState([]);
-  const [buttonDisable, setButtonDisable] = useState(false);
+  // const [buttonDisable, setButtonDisable] = useState(false);
   const [cartProducts, setCartProducts] = useState([]);
   // let cartProducts=JSON.parse(localStorage.getItem("cartProducts"));
   //get Product from localStorage
@@ -37,7 +37,7 @@ export default function AllProduct(props) {
   const addToCart = (id) => {
     products.map((product) => {
       if (product.id === id) {
-        setButtonDisable(true);
+        // setButtonDisable(true);
         let tempCartProduct = [...cartProducts];
         tempCartProduct.push(product);
         localStorage.setItem("cartProducts", JSON.stringify(tempCartProduct));
@@ -61,10 +61,8 @@ export default function AllProduct(props) {
               key={product.id}
               id={product.id}
               addToCart={addToCart}
-              disable={buttonDisable}
               productId={product.id}
               cartProductsArr={cartProducts}
-              
             />
           );
         })}
