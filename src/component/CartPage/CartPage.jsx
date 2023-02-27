@@ -26,15 +26,23 @@ export default function CartPage() {
     });
   };
 
-  const getTotalPrice = () => {
+  const getTotalPrice = (tempArr) => {
+    let total;
     let sum = 0;
 
-    cartProducts.map((product) => {
-      let totalNumber = parseInt(product.price * product.quantity);
-      sum += totalNumber;
-    });
+    if (tempArr.length == 0) {
+      total = 0;
+      console.log(tempArr.length);
+    } else {
+      tempArr.map((product) => {
+        total = parseInt(product.price * product.quantity);
+
+        sum += total;
+      });
+
+      console.log(sum);
+    }
     setTotalPrice(sum);
-    console.log(sum);
   };
 
   const updateLocal = (quantity) => {
@@ -47,9 +55,11 @@ export default function CartPage() {
   };
 
   useEffect(() => {
-    setCartProducts(cartProductFromLocalStorage());
+    const tempArr = cartProductFromLocalStorage();
 
-    // getTotalPrice();
+    setCartProducts(tempArr);
+    console.log(tempArr);
+    getTotalPrice(tempArr);
   }, []);
   // localStorage.clear()
   return (
@@ -64,6 +74,7 @@ export default function CartPage() {
               img={cartProduct.img}
               key={cartProduct.id}
               id={cartProduct.id}
+              arr={cartProducts}
               getTotal={getTotalPrice}
               remove={removeProduct}
               updateQuantity={updateLocal}
@@ -72,7 +83,7 @@ export default function CartPage() {
         })}
 
         <div className="cart-page-footer">
-          <p>Total Price:{cartProducts.length == 0 ? "0" : totalPrice}</p>
+          <p>Total Price:{totalPrice}</p>
           <button>
             <Link to="/">continue to shopping</Link>
           </button>
