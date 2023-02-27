@@ -17,7 +17,7 @@ export default function CartProduct(props) {
   const decreaseQuantity = () => {
     let tempQuantity = quantity;
     console.log(tempQuantity);
-    if(tempQuantity==0){tempQuantity=0;
+    if(tempQuantity==1){tempQuantity=1;
     }else{;
       tempQuantity=quantity-1}
 

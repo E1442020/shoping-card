@@ -3,7 +3,7 @@
 .cart-page-container {
   display: flex;
   flex-direction: column;
-  width: 60%;
+  width: 70%;
   margin: 50px auto;
   gap: 40px;
   justify-content: center;
@@ -24,6 +24,7 @@
   }
 
   .cart-page-content {
+    width: 90%;
     display: flex;
     gap: 80px;
     align-items: center;
@@ -34,7 +35,7 @@
     }
 
     .cart-page-content-img {
-      width: 40%;
+      width: 50%;
       height: 200px;
       @include breakpoints(mobile) {
         width: 50%;
@@ -49,6 +50,7 @@
     }
     .cart-page-content-price {
       display: flex;
+      width: 40%;
       flex-direction: column;
       gap: 20px;
       @include breakpoints(mobile) {

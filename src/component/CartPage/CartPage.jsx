@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import Swal from 'sweetalert2'
 import { Link } from "react-router-dom";
 import "./CartPage.css";
 import CartProduct from "./CartProduct";
@@ -16,7 +17,25 @@ export default function CartPage() {
   };
 
   const removeProduct = (id) => {
-    let tempCartProduct = [...cartProducts];
+    const swalWithBootstrapButtons = Swal.mixin({
+      customClass: {
+        confirmButton: 'btn btn-success',
+        cancelButton: 'btn btn-danger'
+      },
+      buttonsStyling: true
+    })
+    
+    swalWithBootstrapButtons.fire({
+      title: 'Are you sure?',
+      text: "You won't be able to revert this!",
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonText: 'Yes, delete it!',
+      cancelButtonText: 'No, cancel!',
+      reverseButtons: true
+    }).then((result) => {
+      if (result.isConfirmed) {
+        let tempCartProduct = [...cartProducts];
     
     tempCartProduct.map((product, index) => {
       if (product.id === id) {
@@ -26,6 +45,23 @@ export default function CartPage() {
         localStorage.setItem("cartProducts", JSON.stringify(tempCartProduct));
       }
     });
+        swalWithBootstrapButtons.fire(
+          'Deleted!',
+          'Your product deleted.',
+          'success'
+        )
+      } else if (
+        /* Read more about handling dismissals below */
+        result.dismiss === Swal.DismissReason.cancel
+      ) {
+        swalWithBootstrapButtons.fire(
+          'Cancelled',
+          'Your product safe :)',
+          'error'
+        )
+      }
+    })
+    
   };
 
   const getTotalPrice = (tempArr) => {
